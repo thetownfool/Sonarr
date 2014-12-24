@@ -1,5 +1,6 @@
 var gulp = require('gulp');
-var webpack = require('gulp-webpack');
+var gulpWebpack = require('gulp-webpack');
+var webpack = require('webpack');
 var paths = require('./paths');
 
 require('./handlebars.js');
@@ -9,11 +10,11 @@ gulp.task('webpack', ['handlebars'], function (cb) {
 
 
  return gulp.src('src/UI/app.js')
- .pipe(webpack({
+ .pipe(gulpWebpack({
     resolve:{
         root: 'src/UI',
         alias:{
-           'backbone'                : 'JsLibraries/backbone',
+           'backbone'                : 'Shims/backbone',
            'moment'                  : 'JsLibraries/moment',
            'filesize'                : 'JsLibraries/filesize',
            'handlebars'              : 'Shared/Shims/handlebars',
@@ -21,30 +22,45 @@ gulp.task('webpack', ['handlebars'], function (cb) {
            'bootstrap'               : 'JsLibraries/bootstrap',
            'backbone.deepmodel'      : 'JsLibraries/backbone.deep.model',
            'backbone.pageable'       : 'JsLibraries/backbone.pageable',
+           'backbone-pageable'       : 'JsLibraries/backbone.pageable',
+           'backbone-pageable'       : 'JsLibraries/backbone.pageable',
            'backbone.validation'     : 'JsLibraries/backbone.validation',
            'backbone.modelbinder'    : 'JsLibraries/backbone.modelbinder',
            'backbone.collectionview' : 'JsLibraries/backbone.collectionview',
-           'backgrid'                : 'JsLibraries/backbone.backgrid',
-           'backgrid.paginator'      : 'JsLibraries/backbone.backgrid.paginator',
+           'backgrid'                : 'Shims/backgrid',
+           'backgrid.paginator'      : 'Shims/backgrid.paginator',
            'backgrid.selectall'      : 'JsLibraries/backbone.backgrid.selectall',
            'fullcalendar'            : 'JsLibraries/fullcalendar',
            'backstrech'              : 'JsLibraries/jquery.backstretch',
            'underscore'              : 'JsLibraries/lodash.underscore',
-           'marionette'              : 'JsLibraries/backbone.marionette',
-           'signalR'                 : 'JsLibraries/jquery.signalR',
+           'marionette'              : 'Shims/backbone.marionette',
+           'signalR'                 : 'Shims/jquery.signalR',
            'jquery-ui'               : 'JsLibraries/jquery-ui',
            'jquery.knob'             : 'JsLibraries/jquery.knob',
            'jquery.easypiechart'     : 'JsLibraries/jquery.easypiechart',
            'jquery.dotdotdot'        : 'JsLibraries/jquery.dotdotdot',
            'messenger'               : 'JsLibraries/messenger',
-           'jquery'                  : 'JsLibraries/jquery',
+           'jquery'                  : 'Shims/jquery',
            'typeahead'               : 'JsLibraries/typeahead',
            'zero.clipboard'          : 'JsLibraries/zero.clipboard',
+           'bootstrap.tagsinput'     : 'JsLibraries/bootstrap.tagsinput',
            'libs'                    : 'JsLibraries/'
        }
-   }
+   },
+   output: {
+    filename: 'main.js',
+    sourceMapFilename: 'main.map'
+   },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            _: 'underscore',
+            Backbone: 'backbone',
+            Marionette: 'backbone.marionette'
+        })
+    ]
 }))
-.pipe(gulp.dest('dist/'));
+.pipe(gulp.dest(paths.dest.root));
 /*
     var config = {
         mainConfigFile: 'src/UI/app.js',
