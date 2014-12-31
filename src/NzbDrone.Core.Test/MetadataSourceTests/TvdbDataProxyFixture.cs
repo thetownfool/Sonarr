@@ -32,7 +32,9 @@ namespace NzbDrone.Core.Test.MetadataSourceTests
         [TestCase("Rob & Big", "Rob & Big")]
         [TestCase("M*A*S*H", "M*A*S*H")]
         //[TestCase("imdb:tt0436992", "Doctor Who (2005)")]
-        //[TestCase("tvdb:78804", "Doctor Who (2005)")]
+        [TestCase("tvdb:78804", "Doctor Who (2005)")]
+        [TestCase("tvdbid:78804", "Doctor Who (2005)")]
+        [TestCase("tvdbid: 78804 ", "Doctor Who (2005)")]
         public void successful_search(string title, string expected)
         {
             var result = Subject.SearchForNewSeries(title);
@@ -42,10 +44,14 @@ namespace NzbDrone.Core.Test.MetadataSourceTests
             result[0].Title.Should().Be(expected);
         }
 
-        [Test]
-        public void no_search_result()
+        [TestCase("tvdbid:")]
+        [TestCase("tvdbid: 99999999999999999999")]
+        [TestCase("tvdbid: 0")]
+        [TestCase("tvdbid: -12")]
+        [TestCase("adjalkwdjkalwdjklawjdlKAJD;EF")]
+        public void no_search_result(string term)
         {
-            var result = Subject.SearchForNewSeries(Guid.NewGuid().ToString());
+            var result = Subject.SearchForNewSeries(term);
             result.Should().BeEmpty();
         }
 
