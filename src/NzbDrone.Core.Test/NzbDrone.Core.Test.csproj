@@ -210,6 +210,9 @@
     <Compile Include="MediaFiles\ImportApprovedEpisodesFixture.cs" />
     <Compile Include="MediaFiles\MediaFileRepositoryFixture.cs" />
     <Compile Include="MetadataSourceTests\TvdbDataProxyFixture.cs" />
+    <Compile Include="MetadataSourceTests\SearchSeriesComparerFixture.cs" />
+    <Compile Include="OrganizerTests\FileNameBuilderTests\CleanTitleFixture.cs" />
+    <Compile Include="OrganizerTests\FileNameBuilderTests\EpisodeTitleCollapseFixture.cs" />
     <Compile Include="ParserTests\MiniSeriesEpisodeParserFixture.cs" />
     <Compile Include="Qualities\RevisionComparableFixture.cs" />
     <Compile Include="RemotePathMappingsTests\RemotePathMappingServiceFixture.cs" />
@@ -226,8 +229,6 @@
     <Compile Include="Messaging\Events\EventAggregatorFixture.cs" />
     <Compile Include="Metadata\Consumers\Roksbox\FindMetadataFileFixture.cs" />
     <Compile Include="Metadata\Consumers\Wdtv\FindMetadataFileFixture.cs" />
-    <Compile Include="MetadataSourceTests\TraktProxyFixture.cs" />
-    <Compile Include="MetadataSourceTests\TraktProxyQueryFixture.cs" />
     <Compile Include="MetadataSourceTests\TvdbProxyFixture.cs" />
     <Compile Include="NotificationTests\PlexProviderTest.cs" />
     <Compile Include="NotificationTests\ProwlProviderTest.cs" />

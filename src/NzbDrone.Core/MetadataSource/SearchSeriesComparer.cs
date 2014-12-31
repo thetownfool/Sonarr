@@ -8,17 +8,17 @@ using NzbDrone.Core.Tv;
 
 namespace NzbDrone.Core.MetadataSource
 {
-    public class TraktSearchSeriesComparer : IComparer<Series>
+    public class SearchSeriesComparer : IComparer<Series>
     {
         private static readonly Regex RegexCleanPunctuation = new Regex("[-._:]", RegexOptions.Compiled);
         private static readonly Regex RegexCleanCountryYearPostfix = new Regex(@"(?<=.+)( \([A-Z]{2}\)| \(\d{4}\)| \([A-Z]{2}\) \(\d{4}\))$", RegexOptions.Compiled);
 
         public String SearchQuery { get; private set; }
 
-        private String _searchQueryWithoutYear;
+        private readonly String _searchQueryWithoutYear;
         private Int32? _year;
 
-        public TraktSearchSeriesComparer(String searchQuery)
+        public SearchSeriesComparer(String searchQuery)
         {
             SearchQuery = searchQuery;
             
