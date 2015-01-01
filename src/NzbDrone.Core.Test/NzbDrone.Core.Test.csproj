@@ -211,8 +211,6 @@
     <Compile Include="MediaFiles\MediaFileRepositoryFixture.cs" />
     <Compile Include="MetadataSourceTests\TvdbDataProxyFixture.cs" />
     <Compile Include="MetadataSourceTests\SearchSeriesComparerFixture.cs" />
-    <Compile Include="OrganizerTests\FileNameBuilderTests\CleanTitleFixture.cs" />
-    <Compile Include="OrganizerTests\FileNameBuilderTests\EpisodeTitleCollapseFixture.cs" />
     <Compile Include="ParserTests\MiniSeriesEpisodeParserFixture.cs" />
     <Compile Include="Qualities\RevisionComparableFixture.cs" />
     <Compile Include="RemotePathMappingsTests\RemotePathMappingServiceFixture.cs" />
@@ -436,7 +434,7 @@
     </PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
