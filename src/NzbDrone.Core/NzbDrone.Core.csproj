@@ -541,6 +541,7 @@
     <Compile Include="Messaging\IProcessMessage.cs" />
     <Compile Include="MetadataSource\TvDbProxy.cs" />
     <Compile Include="MetadataSource\SearchSeriesComparer.cs" />
+    <Compile Include="MetadataSource\Tvdb\TvdbException.cs" />
     <Compile Include="Metadata\Consumers\MediaBrowser\MediaBrowserMetadata.cs" />
     <Compile Include="Metadata\Consumers\MediaBrowser\MediaBrowserMetadataSettings.cs" />
     <Compile Include="Metadata\Consumers\Roksbox\RoksboxMetadata.cs" />
@@ -568,6 +569,10 @@
     <Compile Include="MetadataSource\ISearchForNewSeries.cs" />
     <Compile Include="MetadataSource\Tvdb\TvdbException.cs" />
     <Compile Include="MetadataSource\Tvdb\TvdbProxy.cs" />
+    <Compile Include="Profiles\Delay\DelayProfile.cs" />
+    <Compile Include="Profiles\Delay\DelayProfileService.cs" />
+    <Compile Include="Profiles\Delay\DelayProfileTagInUseValidator.cs" />
+    <Compile Include="Profiles\ProfileRepository.cs" />
     <Compile Include="Qualities\Revision.cs" />
     <Compile Include="RemotePathMappings\RemotePathMapping.cs" />
     <Compile Include="RemotePathMappings\RemotePathMappingRepository.cs" />
