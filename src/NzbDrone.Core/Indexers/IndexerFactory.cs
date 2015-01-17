@@ -29,7 +29,7 @@ namespace NzbDrone.Core.Indexers
 
         protected override void InitializeProviders()
         {
-            _providerRepository.DeleteImplementations("Animezb");
+            //_providerRepository.DeleteImplementations("Animezb");
         }
 
         protected override List<IndexerDefinition> Active()
